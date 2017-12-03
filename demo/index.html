@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>polymer-uitk-alert demo</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../polymer-uitk-alert.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic polymer-uitk-alert demo</h3>
+
+      <h2>Info</h2>
+      <demo-snippet>
+        <template>
+          <polymer-uitk-alert type="info" text="This is an informative message." />
+        </template>
+      </demo-snippet>
+
+      <h2>Success</h2>
+      <demo-snippet>
+        <template>
+          <polymer-uitk-alert type="success" text="This is an alert message when something goes smoothly."></polymer-uitk-alert>
+        </template>
+      </demo-snippet>
+
+      <h2>Warning</h2>
+      <demo-snippet>
+        <template>
+          <polymer-uitk-alert type="warn" text="This is a warning alert message."></polymer-uitk-alert>
+        </template>
+      </demo-snippet>
+
+      <h2>Error</h2>
+      <demo-snippet>
+        <template>
+          <polymer-uitk-alert type="error" text="This is an alert message when something goes wrong."></polymer-uitk-alert>
+        </template>
+      </demo-snippet>
+
+      <h2>Error with title</h2>
+      <demo-snippet>
+        <template>
+          <polymer-uitk-alert type="error" title="Alert message with title" text="This is an alert message when something goes wrong."></polymer-uitk-alert>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

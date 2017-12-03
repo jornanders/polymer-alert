@@ -1,0 +1,68 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<!--<link rel="import" href="../bower_components/iron-icons/iron-icons.html">-->
+<link rel="import" href="./uitk-styles.html">
+<link rel="import" href="./uitk-icons.html">
+
+<dom-module id="polymer-uitk-alert">
+    <template>
+        <style is="uitk-styles" include="uitk-styles">
+            :host {
+                display: block;
+            }
+        </style>
+        <div class$="[[_alertClass()]]" data-control="alert">
+            <i class="icon icon-infoalt"></i>
+            <div class="alert-message">
+                <h6 class$="[[_headerClass()]]">{{title}}</h6>
+                <p>{{text}}</p>
+            </div>
+
+            <button class="btn-close alert-remove" type="button">
+                <span class="icon icon-close" aria-hidden="true"></span>
+                <iron-icon icon="uitk:klokke"/>
+            </button>
+
+        </div>
+    </template>
+
+    <script>
+        /**
+         * `polymer-uitk-alert`
+         * port of uitk alert
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class PolymerUitkAlert extends Polymer.Element {
+            static get is() {
+                return 'polymer-uitk-alert';
+            }
+
+            static get properties() {
+                return {
+                    type: {
+                        type : String,
+                        value: 'info'
+                    },
+                    text: {
+                        type: String
+                    },
+                    title: {
+                        type: String
+                    }
+                };
+            }
+
+            _alertClass() {
+                return 'alert alert-' + this.type;
+            }
+
+            _headerClass() {
+                return 'alert-title sub-header' + (this.title === undefined ? ' visuallyhidden' : '');
+            }
+        }
+
+        window.customElements.define(PolymerUitkAlert.is, PolymerUitkAlert);
+    </script>
+</dom-module>

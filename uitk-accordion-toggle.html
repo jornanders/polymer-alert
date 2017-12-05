@@ -1,0 +1,49 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./uitk-styles.html">
+
+<dom-module id="uitk-accordion-toggle">
+	<template>
+		<style is="uitk-styles" include="uitk-styles">
+
+		</style>
+
+		<li>
+			<div class="toggle">Accordion 1</div>
+			<div class="toggle-pane open" style="height:0px">
+				<slot></slot>
+			</div>
+		</li>
+	</template>
+	<script>
+		class AccordionToggle extends Polymer.Element {
+			static get is() {
+				return "uitk-accordion-toggle";
+			}
+
+            static get properties() {
+                return {
+                    opened: {
+                        type : Boolean,
+                        value: false,
+                        observer: '_openedChanged'
+                    },
+
+					togglePaneClass: {
+                        type: String,
+						value: 'toggle-pane',
+					}
+                };
+            }
+
+            toggle() {
+                this.opened = !this.opened;
+            }
+
+            _openedChanged() {
+                this.togglePaneClass = 'toggle-pane' + (this.opened ? ' open' : '');
+			}
+		}
+		customElements.define(AccordionToggle.is, AccordionToggle);
+
+	</script>
+</dom-module>

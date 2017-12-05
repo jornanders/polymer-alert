@@ -11,6 +11,9 @@
     <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../polymer-uitk-alert.html">
+    <link rel="import" href="../uitk-toggle.html">
+    <link rel="import" href="../uitk-accordion.html">
+    <link rel="import" href="../uitk-accordion-toggle.html">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
@@ -20,6 +23,28 @@
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic polymer-uitk-alert demo</h3>
+
+      <h2>Accordion</h2>
+      <demo-snippet>
+        <template>
+          <uitk-accordion>
+            <uitk-accordion-toggle>
+              dette er en accordion
+            </uitk-accordion-toggle>
+          </uitk-accordion>
+        </template>
+      </demo-snippet>
+
+      <h2>Basic toggle</h2>
+      <demo-snippet>
+        <template>
+          <uitk-toggle>
+              <div>
+                halla balla!!
+              </div>
+          </uitk-toggle>
+        </template>
+      </demo-snippet>
 
       <h2>Info</h2>
       <demo-snippet>

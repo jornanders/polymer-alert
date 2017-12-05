@@ -1,0 +1,50 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./uitk-styles.html">
+
+<dom-module id="uitk-toggle">
+	<template>
+		<style is="uitk-styles" include="uitk-styles">
+			:host(.uitk-collapse-closed) {
+				display: none;
+			}
+
+		</style>
+
+		<a href="#standaloneToggleX" data-control="toggle" class="toggle" on-click="toggle">Basic toggle</a>
+		<div class$="[[togglePaneClass]]" style="height:0px">
+			<slot></slot>
+		</div>
+	</template>
+	<script>
+		class Toggle extends Polymer.Element {
+			static get is() {
+				return "uitk-toggle";
+			}
+
+            static get properties() {
+                return {
+                    opened: {
+                        type : Boolean,
+                        value: false,
+                        observer: '_openedChanged'
+                    },
+
+					togglePaneClass: {
+                        type: String,
+						value: 'toggle-pane',
+					}
+                };
+            }
+
+            toggle() {
+                this.opened = !this.opened;
+            }
+
+            _openedChanged() {
+                this.togglePaneClass = 'toggle-pane' + (this.opened ? ' open' : '');
+			}
+		}
+		customElements.define(Toggle.is, Toggle);
+
+	</script>
+</dom-module>
